@@ -1,0 +1,21 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+type Circulo struct {
+	Raio float64
+}
+
+func calcularArea(circulo Circulo) float64 {
+	return math.Pi * circulo.Raio * circulo.Raio
+}
+
+func main() {
+	circuloExemplo := Circulo{Raio: 5.0}
+
+	area := calcularArea(circuloExemplo)
+	fmt.Printf("A área do círculo é: %.2f\n", area)
+}
