@@ -1,0 +1,36 @@
+package main
+
+import "fmt"
+
+-type Animal struct {
+	Nome   string
+	Especie string
+	Idade  int
+	Som    string
+}
+
+-func modificarSom(animal *Animal, novoSom string) {
+	animal.Som = novoSom
+}
+
+-func imprimirInformacoesAnimal(animal Animal) {
+	fmt.Printf("Nome: %s\n", animal.Nome)
+	fmt.Printf("Espécie: %s\n", animal.Especie)
+	fmt.Printf("Idade: %d anos\n", animal.Idade)
+	fmt.Printf("Som: %s\n", animal.Som)
+}
+
+func main() {
+-	animalExemplo := Animal{
+		Nome:    "Fido",
+		Especie: "Cachorro",
+		Idade:   3,
+		Som:     "Au au",
+	}
+
+-	fmt.Printf("Som antes da modificação: %s\n", animalExemplo.Som)
+	modificarSom(&animalExemplo, "Woof woof")
+	fmt.Printf("Som após modificação: %s\n", animalExemplo.Som)
+
+-	imprimirInformacoesAnimal(animalExemplo)
+}
