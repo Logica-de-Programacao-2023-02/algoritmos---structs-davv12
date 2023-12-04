@@ -1,0 +1,45 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+type Viagem struct {
+	Origem  string
+	Destino string
+	Data    time.Time
+	Preco   float64
+}
+
+func viagemMaisCara(viagens []Viagem) Viagem {
+	if len(viagens) == 0 {
+		return Viagem{}
+	}
+
+	maisCara := viagens[0]
+
+	for _, viagem := range viagens {
+		if viagem.Preco > maisCara.Preco {
+			maisCara = viagem
+		}
+	}
+
+	return maisCara
+}
+
+func main() {
+	viagens := []Viagem{
+		{Origem: "Cidade A", Destino: "Cidade B", Data: time.Now(), Preco: 500.0},
+		{Origem: "Cidade C", Destino: "Cidade D", Data: time.Now(), Preco: 700.0},
+		{Origem: "Cidade E", Destino: "Cidade F", Data: time.Now(), Preco: 1000.0},
+	}
+
+	viagemMaisCara := viagemMaisCara(viagens)
+
+	fmt.Println("Viagem Mais Cara:")
+	fmt.Println("Origem:", viagemMaisCara.Origem)
+	fmt.Println("Destino:", viagemMaisCara.Destino)
+	fmt.Println("Data:", viagemMaisCara.Data)
+	fmt.Println("Preço:", viagemMaisCara.Preco)
+}
